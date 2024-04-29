@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 11:12:07 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/03/11 11:39:56 by ade-rese         ###   ########.fr       */
+/*   Created: 2024/03/29 09:17:15 by abutet            #+#    #+#             */
+/*   Updated: 2024/04/18 14:59:17 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	error_free(t_frst *stack)
 
 	i = 0;
 	ft_lstclear(stack->a);
-	if (stack->size_b > 0)
-		ft_lstclear(stack->b);
 	free(stack->a);
 	free(stack->b);
 	free(stack->jstr);

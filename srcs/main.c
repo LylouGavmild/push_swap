@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 10:09:48 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/03/11 15:34:24 by abutet           ###   ########.fr       */
+/*   Created: 2024/03/29 09:18:12 by abutet            #+#    #+#             */
+/*   Updated: 2024/04/18 10:52:21 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	init_stack_helper(t_frst *stack)
 
 static void	init_stack(t_frst *stack, char **argv)
 {
-	int			i;
+	int	i;
 
 	stack->jstr = ft_strdup(argv[1]);
 	if (!stack->jstr)
@@ -69,18 +69,6 @@ static void	micro_main(t_frst *stack, char **argv)
 		error_free(stack);
 }
 
-void	print_stack(t_stack **stack)
-{
-	t_stack		*a;
-
-	a = (*stack);
-	while (a)
-	{
-		printf("%lld\n", a->nbr);
-		a = a->next;
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	t_frst	stack;
@@ -109,92 +97,3 @@ int	main(int argc, char **argv)
 	free(stack.b);
 	return (0);
 }
-
-/*int	main(int argc, char **argv)
-{
-	int		i;
-	char	*jstr;
-	char	**a;
-
-	i = 0;
-	jstr = argv[1];
-	if (argc > 1)
-	{
-		while (argv[i++] && argv[i])
-			schecker(argv[i]);
-		i = 2;
-		while (argv[i])
-		{
-			jstr = ft_strjoin(jstr, argv[i]);
-			i++;
-		}
-		a = ft_split(jstr, ' ');
-	}
-	return (0);
-}*/
-
-/*
-void	print_stack(t_stack **stack)
-{
-	t_stack		*a;
-
-	a = (*stack);
-	while (a)
-	{
-		printf("%lld\n", a->nbr);
-		a = a->next;
-	}
-}
-
-
-struct t_vector2
-{
-	int x;
-	int y;
-}	t_vector2;
-
-int	main(int argc, char **argv)
-{
-	t_frst	stack;
-
-	t_vector2 vec;
-
-	vec.x = 10;
-	vec.y = 100;
-
-	t_stack const stack2 = {.previous = 10};
-
-	stack2 = (t_stack){1};
-
-	stack2 = (t_stack){.previous = malloc(1)};
-
-
-	argc = 2;
-	argv = (char *[]){"push_swap", "5 \t7 6\n9", NULL};
-	int *p = &(int){9};
-	null_init(&stack);
-	stack.a = (t_stack **)malloc(sizeof(t_stack *));
-	if (!stack.a)
-		return (0);
-	stack.b = (t_stack **)malloc(sizeof(t_stack *));
-	if (!stack.b)
-		error_free(&stack);
-	if (argc >= 2)
-	{
-		if (!args_check(argv))
-		{
-			free(stack.a);
-			free(stack.b);
-			error();
-		}
-		init_stack(&stack, argv);
-		if (!check_double(stack))
-			error_free(&stack);
-		if (check_if_sort(stack))
-			ft_lstclear(stack.a);
-		print_stack(stack.a);
-	}
-	free(stack.a);
-	free(stack.b);
-	return (0);
-}*/

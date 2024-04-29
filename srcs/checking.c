@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checking.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 10:40:59 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/03/11 11:32:22 by ade-rese         ###   ########.fr       */
+/*   Created: 2024/03/29 09:16:41 by abutet            #+#    #+#             */
+/*   Updated: 2024/04/16 10:26:08 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ int	check_if_sort(t_frst stack)
 {
 	t_stack	*tmp;
 
-	if (stack.size_a < 1)
-		return (0);
 	tmp = *stack.a;
 	while (tmp->next)
 	{

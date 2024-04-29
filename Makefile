@@ -1,35 +1,49 @@
-SRCS	=	./srcs/main.c ./srcs/instructions_a.c ./srcs/instructions_b.c ./srcs/instructions_mix.c ./srcs/final.c\
-			./srcs/lst.c ./srcs/error.c ./srcs/helper_libft0.c ./srcs/helper_libft.c ./srcs/parsing.c ./srcs/cost.c \
-			./srcs/checking.c ./srcs/free.c ./srcs/algo.c ./srcs/median.c ./srcs/cost_helper.c ./srcs/operation_cost.c
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: abutet <abutet@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/03/29 09:18:41 by abutet            #+#    #+#              #
+#    Updated: 2024/03/29 09:18:42 by abutet           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-OBJS	=	$(SRCS:.c=.o)
+SRCS_MAIN	=	./srcs/main.c ./srcs/instructions_a.c ./srcs/instructions_b.c ./srcs/instructions_mix.c ./srcs/final.c\
+				./srcs/lst.c ./srcs/error.c ./srcs/helper_libft0.c ./srcs/helper_libft.c ./srcs/parsing.c ./srcs/cost.c \
+				./srcs/checking.c ./srcs/free.c ./srcs/algo.c ./srcs/median.c ./srcs/cost_helper.c ./srcs/operation_cost.c
 
-BONUS           =   checker
+SRCS_BONUS	=	./bonus/gnl_bonus.c ./bonus/checker_bonus.c ./bonus/main_bonus.c ./srcs/instructions_a.c ./srcs/instructions_b.c\
+				./srcs/instructions_mix.c ./srcs/lst.c ./srcs/error.c ./srcs/helper_libft0.c ./srcs/helper_libft.c ./srcs/parsing.c \
+				./srcs/checking.c ./srcs/free.c
 
-BONUS_OBJS      =    $(BONUS:.c=.o)
+OBJS_MAIN	=	$(SRCS_MAIN:.c=.o)
+OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
 
-CC		=	cc
+CC			=	cc
+CFLAGS		=	-Wall -Wextra -Werror -g3
+RM			=	rm -f
 
-CFLAGS	=	-Wall -Wextra -Werror -g3
+NAME		=	push_swap
+BONUS		=	checker
 
-RM		=	rm -f
+all: $(NAME)
 
-NAME	=	push_swap
-
-all:	$(NAME)
-
-$(NAME):	$(OBJS)
-			$(CC) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS_MAIN)
+	$(CC) $(OBJS_MAIN) -o $(NAME)
 
 clean:
-		$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS_MAIN) $(OBJS_BONUS)
 
-fclean:	clean
-		$(RM) $(NAME)
+fclean: clean
+	$(RM) $(NAME) $(BONUS)
 
-re:		fclean $(NAME)
+re: fclean all
 
-bonus:	$(OBJS) $(BONUS_OBJS)
-	$(CC) $(OBJS) $(BONUS_OBJS) -o $(BONUS)
+$(BONUS): $(OBJS_BONUS)
+	$(CC) $(OBJS_BONUS) -o $(BONUS)
 
-.PHONY:	all clean fclean re bonus
+bonus: $(BONUS)
+
+.PHONY: all clean fclean re bonus

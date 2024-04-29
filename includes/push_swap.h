@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abutet <abutet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 10:09:06 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/03/11 12:24:02 by abutet           ###   ########.fr       */
+/*   Created: 2024/03/29 09:12:46 by abutet            #+#    #+#             */
+/*   Updated: 2024/04/18 15:00:03 by abutet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -34,8 +33,6 @@ typedef struct s_frst
 	long long	size_b;
 }	t_frst;
 
-void		print_stack(t_stack **stack);
-
 int			ft_issign(int c);
 int			ft_isdigit(int c);
 int			is_whitespace(char c);
@@ -44,6 +41,7 @@ int			ft_issign_or_space(int c);
 int			check_double(t_frst stack);
 int			check_if_sort(t_frst stack);
 int			ft_lst_size(t_stack *stack);
+t_stack		*stackcp(t_stack *stack);
 t_stack		*ft_lstnew(long long nbr);
 t_stack		*ft_lstlast(t_stack *lst);
 t_stack		*partition_helper(t_stack *stack, long long lrp);
